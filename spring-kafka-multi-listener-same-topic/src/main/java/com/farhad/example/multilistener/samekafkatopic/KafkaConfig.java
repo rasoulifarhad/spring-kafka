@@ -20,11 +20,16 @@ package com.farhad.example.multilistener.samekafkatopic;
 // import org.springframework.kafka.core.ProducerFactory;
 
 import org.springframework.context.annotation.Configuration;
+// import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
+// import org.springframework.kafka.core.ConsumerFactory;
+// import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Configuration
 @Slf4j
+@RequiredArgsConstructor
 public class KafkaConfig {
     
 
@@ -115,6 +120,26 @@ public class KafkaConfig {
     //         System.out.println(in);
     //     }
     
+    // }
+
+
+    // private final KafkaProperties properties;
+    // 
+    // public ConsumerFactory<String,BookEvent> bookEventConsumerFactory(String groupId) {
+    //   
+    //     Map<String,Object> props = new HashMap<>( properties.buildConsumerProperties());
+    //     props.put( ConsumerConfig.GROUP_ID_CONFIG,groupId);
+
+    //     DefaultKafkaConsumerFactory<String,BookEvent> cf = new DefaultKafkaConsumerFactory<>(props);
+    //     return cf ;
+    // }
+    // 
+    // @Bean
+    // public ConcurrentKafkaListenerContainerFactory<String,BookEvent> bookEventKafkaListenerContainerFactory(String groupId) {
+    // 
+    //     ConcurrentKafkaListenerContainerFactory<String,BookEvent> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    //     factory.setConsumerFactory(bookEventConsumerFactory(groupId));
+    //     return factory;
     // }
 
 }

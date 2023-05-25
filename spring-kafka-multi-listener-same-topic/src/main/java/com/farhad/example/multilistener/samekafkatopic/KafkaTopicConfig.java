@@ -9,7 +9,7 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class KafkaTopicConfig {
     
-    @Bean
+    @Bean("bookTopic")
     public NewTopic bookTopic(@Value("${spring.kafka.topic:books-topic}") String topic) {
         return TopicBuilder
                         .name(topic)
@@ -26,6 +26,7 @@ public class KafkaTopicConfig {
                         .build();
     }
 
+    @Bean("bookPartitionedTopic")
     public NewTopic generalPartitionedTopic(@Value("${general.partitioned.topic.name:partitioned-topic}") String topic) {
         return TopicBuilder
                         .name(topic)
